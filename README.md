@@ -13,6 +13,11 @@
 * Cordova
 * SASS
 
+## Project setup
+```
+npm install
+```
+
 
 
 
