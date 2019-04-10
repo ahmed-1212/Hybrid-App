@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#2196f3">
+  <!-- Your app title -->
+  <title>Elba-App</title>
+  <!-- Titlt Logo -->
+  <link rel="icon" href="http://www.elba.com.sa/public/img/logo.png" type="image/png" sizes="16x16">
+  <!-- Path to Framework7 Library CSS -->
+  <link rel="stylesheet" href="css/framework7.min.css">
+  <!-- Path to IOS-MD-Framework7 Library CSS -->
+  <link rel="stylesheet" href="css/framework7.ios.min.css">
+  <!-- Path to your custom app styles-->
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+  <!-- Start Of The Page -->
+
+  <div id="app">
+    <div class="statusbar"></div>
+    <!-- Left Panel And Links -->
+    <div class="panel panel-left panel-cover">
+      <div class="page" >
+        <div class="page-content" >
+          <div class="block">
+            <a href="/index/"><img src="images/elba-logo/logo.png" alt="logo" /></a>
+          </div>
+          <div class="list links-list">
+            <ul>
+              <li class="active">
+                <a href="/index/" class="panel-close navbar-link">
+                  <span>
+                    <i class='fa fa-home'></i>
+                    <span class="home">Home</span>
+                  </span>
+
+                </a>
+              </li>
+              <li>
+                <a href="/contact/" class="panel-close navbar-link">
+                  <span class=""><i class='fa fa-phone'></i>
+                    <span class="contact-text"></span>
+                  </span></a>
+
+              </li>
+              <li>
+                <a href="/settings/" class="panel-close navbar-link">
+                  <span class="">
+                    <i class='fa fa-gear'></i>
+                    <span class="settings-text"></span>
+                  </span></a>
+              </li>
+              <li>
+                <a class="link external navbar-link" href="http://www.elba.com.sa" class="panel-close"><span><i class='fa fa-laptop'></i>
+                    <span class="main-website"></span>
+                  </span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- End Left Panel And Links -->
+
+    <!-- Start Of The Page View -->
+
+    <div class="view view-main view-init ios-edges" data-url="/">
+
+      <!-- Statrt Page Content -->
+
+      <div class="page">
+        <!-- Navbar -->
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="left">
+              <a href="#" class="link icon-only panel-open" data-panel="left">
+                <i class="fa fa-bars" style="font-size: 17px"></i>
+              </a>
+            </div>
+            <div class="title sliding"><img src="images/elba-logo/logo.png" alt="logo" /></div>
+          </div>
+          <div class="navbar-inner sliding call-back">
+            <div class="left">
+              <a href="#" class="link back">
+              </a>
+            </div>
+            <div class="title"></div>
+          </div>
+        </div>
+        <!-- End Navbar -->
+
+
+        <!-- Start Toolbar -->
+
+
+        <!-- Italy Flag -->
+
+        <div class="elba-flag">
+          <div class="flag-1"></div>
+          <div class="flag-2">made In Italy Since 1950</div>
+          <div class="flag-3"></div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+
+
+          <!----- Tab One ------>
+
+          <div id="tab-1" class="page-content tab tab-active">
+            <div class="page-content">
+              <div data-pagination='{"el": ".swiper-pagination1"}' style="margin-top: -5px" data-effect="fade" class="swiper-container swiper-init demo-swiper demo-swiper-fade">
+                <div class="swiper-pagination1"></div>
+                <div class="swiper-wrapper" style="height: 180px">
+                  <div style="background:url(images/slide-image/slider-1.jpg)center center no-repeat;background-size: cover"
+                    class="swiper-slide"></div>
+                  <div style="background:url(images/slide-image/slider-2.jpg)center center no-repeat;background-size: cover"
+                    class="swiper-slide"></div>
+                  <div style="background:url(images/slide-image/slider-3.jpg)center center no-repeat;background-size: cover"
+                    class="swiper-slide"></div>
+                  <div style="background:url(images/slide-image/slider-4.jpg)center center no-repeat; background-size: cover"
+                    class="swiper-slide"></div>
+                </div>
+              </div>
+              <div class="block ar-text-right">
+                <h3 class="new-products"></h3>
+
+              </div>
+              <div data-pagination='{"el": ".swiper-pagination", "hideOnClick": true}' class="swiper-container swiper-init demo-swiper new-products-slider">
+                <div class="swiper-wrapper">
+
+                </div>
+              </div>
+              <div class="block ar-text-right">
+                <h3 class="types_translate"></h3>
+              </div>
+              <div class="swiper-container swiper-init demo-swiper  types" data-slides-per-view="2">
+                <div class="swiper-wrapper">
+                  
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- End Toolbar -->
+
+      </div>
+
+      <!-- End Page Content -->
+
+    </div>
+
+    <!-- End Of The Page View -->
+
+  </div>
+
+  <!-- End The Start Of The Page -->
+
+
+
+
+  <!--  <script src="cordova.js"></script> -->
+  <script src="./js/new.js"></script>
+</body>
+
+</html>

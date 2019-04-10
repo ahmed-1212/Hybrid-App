@@ -1,0 +1,98 @@
+<template>
+  <div class="page">
+
+    <div class="view view-main view-init ios-edges" data-url="/">
+      <div class="page">
+        <div class="navbar famili-product">
+          <div class="navbar-inner">
+            <div class="left">
+              <a href="#" class="link icon-only panel-open" data-panel="left">
+                <i class="fa fa-bars" style="font-size: 17px"></i>
+              </a>
+            </div>
+            <div class="title sliding"><a href="/index/"><img src="images/elba-logo/logo.png" alt="logo" /></a></div>
+          </div>
+          <div class="navbar-inner sliding call-back">
+            <div class="left">
+              <a href="#" class="link back">
+                <i class="icon icon-back"></i>
+                <span class="ios-only">Back</span>
+              </a>
+            </div>
+            <div class="title contact-us"></div>
+          </div>
+        </div>
+
+        <!-- Italy Flag -->
+
+        <div class="elba-flag">
+          <div class="flag-1"></div>
+          <div class="flag-2">made In Italy Since 1950</div>
+          <div class="flag-3"></div>
+        </div>
+
+        <div class="page-content contact">
+          <div class="contact-info">
+            <div class="block">
+              <h5>Jeddah</h5>
+              <p>Al-Steen Street</p>
+              <span>012-6768777</span>
+              <span>012-6768666</span>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1855.410579800374!2d39.18888888091724!3d21.553847163797794!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x481005bf03d584ff!2z2LTYsdmD2Kkg2KXZhNio2Kcg2YTZhNij2KzZh9iy2Kkg2KfZhNil2YTZg9iq2LHZiNmG2YrYqQ!5e0!3m2!1sar!2ssa!4v1516766641885"
+                width="80%" height="320" frameborder="0" style="border:0" allowfullscreen></iframe>
+              <hr>
+              <h5>Dammam</h5>
+              <p>King Abdulaziz St</p>
+              <span>013-8349922</span>
+              <span>013-8347878</span>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3572.287184999004!2d50.11426828496493!3d26.446470283330648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDI2JzQ3LjMiTiA1MMKwMDYnNDMuNSJF!5e0!3m2!1sar!2ssa!4v1521061785708"
+                width="80%" height="320" frameborder="0" style="border:0" allowfullscreen></iframe>
+              <hr>
+              <h5>Riyadh</h5>
+              <p>Al-Takhasosi St.</p>
+              <span>011-4624747</span>
+              <span>011-4613377</span>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3625.2938075367656!2d46.67904678500074!3d24.68242488413823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDQwJzU2LjciTiA0NsKwNDAnMzYuNyJF!5e0!3m2!1sar!2ssa!4v1521062162467"
+                width="80%" height="320" frameborder="0" style="border:0" allowfullscreen></iframe>
+              <hr>
+              <h5>kamis Mushait</h5>
+              <p>Al-Hezzam St</p>
+              <span>017-2512458</span>
+              <span>017-2384477</span>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3788.061043387511!2d42.7208294851106!3d18.298816387538494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDE3JzU1LjciTiA0MsKwNDMnMDcuMSJF!5e0!3m2!1sar!2ssa!4v1521062341111"
+                width="80%" height="320" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+            <h3 class="contact-us"></h3>
+            <ul>
+
+              <li><a href="https://twitter.com/ELBAsaudi"><i class="fa fa-twitter"></i> Follow Us On Twitter</a></li>
+              <li><a href="https://www.instagram.com/elbasaudi"><i class="fa fa-instagram"></i> Follow Us On Instagram</a></li>
+              <li><a href="https://www.facebook.com/italian.appliances"><i class="fa fa-facebook"></i> Follow Us On
+                  Facebook</a></li>
+              <li><a href="tel:920004188"><i class="fa fa-phone"></i> Our Unified Number : 920004188</a></li>
+              <li><a href="mailto:info@elba.com.sa"><i class="fa fa-envelope"></i> Email Us On: info@elba.com.sa</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+  return {
+    methods: {
+      translate() {
+        let translate = JSON.parse(localStorage.getItem('translate'))[this.$app.data.lang];
+       
+        this.$('.contact-us').html(translate['contact']);
+      }
+    },
+    on: {
+      pageInit() {
+        this.translate();
+     
+      }
+    }
+  }
+</script>

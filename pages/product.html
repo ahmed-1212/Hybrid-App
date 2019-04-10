@@ -1,0 +1,122 @@
+<template>
+  <div class="page">
+    <div class="view view-main view-init ios-edges" data-url="/">
+      <div class="page">
+        <div class="navbar famili-product">
+          <div class="navbar-inner">
+            <div class="left">
+              <a href="#" class="link icon-only panel-open" data-panel="left">
+                <i class="fa fa-bars" style="font-size: 17px"></i>
+              </a>
+            </div>
+            <div class="title sliding"><a href="/index/"><img src="images/elba-logo/logo.png" alt="logo" /></a></div>
+          </div>
+          <div class="navbar-inner sliding call-back">
+            <div class="left">
+              <a href="#" class="link back">
+                <i class="icon icon-back"></i>
+                <span class="ios-only">Back</span>
+              </a>
+            </div>
+            <div class="title product_model"></div>
+          </div>
+        </div>
+
+        <!-- Italy Flag -->
+
+        <div class="elba-flag">
+          <div class="flag-1"></div>
+          <div class="flag-2">made In Italy Since 1950</div>
+          <div class="flag-3"></div>
+        </div>
+
+        <div class="page-content">
+          <div class="block review">
+            <img class="product-image" src="" alt="product">
+            <div class="block info ar-text-right">
+              <span></span>
+              <h3 class="product_model"></h3>
+            </div>
+          </div>
+          <div class="review2">
+            <p class="general additional-information">General Loock</p>
+            <div class="block info product_details ar-text-right">
+               
+            </div>
+         
+            <div class="block additional">
+              <div class="data-table">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="label-cell ar-text-right family"></td>
+                      <td class="numeric-cell family_name"></td>
+                    </tr>
+                    <tr>
+                      <td class="label-cell ar-text-right size"></td>
+                      <td class="numeric-cell product_size"></td>
+                    </tr>
+                    <tr>
+                      <td class="label-cell  ar-text-right model">Model</td>
+                      <td class="numeric-cell product_model"></td>
+                    </tr>
+                    <tr>
+                      <td class="label-cell ar-text-right dim"></td>
+                      <td class="numeric-cell product_dim"></td>
+                    </tr>
+                    <tr>
+                      <td class="label-cell ar-text-right fuel"></td>
+                      <td class="numeric-cell product_fuel"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>
+
+<script>
+return {
+    methods: {
+      getProduct(id) {
+        let _self = this,
+              lang = _self.$app.data.lang;
+          this.$app.request.json(this.$app.data.productData(id), function (product) {
+               let image = `${_self.$app.data.producstImagesPath}${product.product_image}`
+              _self.$('.product-image').attr('src', image);
+              _self.$('.product_model').html(product.product_model);
+              _self.$('.product_details').html(product['product_details_' + lang]);
+              _self.$('.product_dim').html(product.product_dim);
+              _self.$('.product_fuel').html(product.product_fuel);
+              _self.$('.product_size').html(product.product_size);
+              _self.$('.family_name').html(product['family_name_' + lang]);
+              
+              
+              
+              
+              
+          });
+      },
+      translate() {
+        let translate = JSON.parse(localStorage.getItem('translate'))[this.$app.data.lang];
+        this.$('.additional-information').html(translate['additional-information']);
+        this.$('.family').html(translate['family']);
+        this.$('.size').html(translate['size']);
+        this.$('.model').html(translate['model']);
+        this.$('.dim').html(translate['dim']);
+        this.$('.fuel').html(translate['fuel']);
+      }
+    },
+    on: {
+      pageInit() {
+        this.translate();
+        this.getProduct(this.$route.params.id);
+      }
+    }
+}
+</script>

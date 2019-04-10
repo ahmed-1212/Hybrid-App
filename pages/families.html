@@ -1,0 +1,83 @@
+<template>
+
+
+  <div class="page">
+    <div class="view view-main view-init ios-edges" data-url="/">
+      <div class="page">
+        <div class="navbar famili-product">
+          <div class="navbar-inner">
+            <div class="left">
+              <a href="#" class="link icon-only panel-open" data-panel="left">
+                <i class="fa fa-bars" style="font-size: 17px"></i>
+              </a>
+            </div>
+            <div class="title sliding"><a href="/index/"><img src="images/elba-logo/logo.png" alt="logo" /></a></div>
+          </div>
+          <div class="navbar-inner sliding call-back">
+            <div class="left">
+              <a href="#" class="link back">
+                <i class="icon icon-back"></i>
+                <span class="ios-only">Back</span>
+              </a>
+            </div>
+            <div class="title type_name">
+              
+            </div>
+          </div>
+        </div>
+
+        <!-- Italy Flag -->
+
+        <div class="elba-flag">
+          <div class="flag-1"></div>
+          <div class="flag-2">made In Italy Since 1950</div>
+          <div class="flag-3"></div>
+        </div>
+
+        <div class="page-content famili-product">
+          <div class="block-title searchbar-found all-product-title type_name"></div>
+          <div class="list components-list searchbar-found">
+            <ul class="families">
+             
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>
+
+<script>
+return {
+  methods: {
+        getFamilies(type_id) {
+          let _self = this,
+              lang = _self.$app.data.lang;
+          this.$app.request.json(this.$app.data.familiesByTypeId(type_id), function (families) {
+              let type_name = _self.$route.params.name;
+              
+              _self.$('.type_name').html(type_name);
+              families.forEach( (family) => {
+                let html = ` <li>
+                <a class="item-content item-link" href="/products/${family.family_id}/${family['family_name_' + lang]}  ">
+                  <div class="item-media"><img src="${_self.$app.data.familiesImagesPath}${family.family_image}" alt="product-family-2"></div>
+                  <div class="item-inner">
+                    <div class="item-title">
+                      ${family['family_name_' + lang]}  
+                    </div>
+                  </div>
+                </a>
+              </li>`;
+              _self.$('.families').append(html);
+              });
+          });
+        }
+  },
+  on:  {
+    pageInit() {
+        this.getFamilies(this.$route.params.id);
+    }
+  }
+}
+</script>

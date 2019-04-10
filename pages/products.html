@@ -1,0 +1,85 @@
+<template>
+
+  <div class="page">
+
+    <!-- End Left Panel And Links -->
+
+    <div class="view view-main view-init ios-edges" data-url="/">
+      <div class="page">
+        <div class="navbar famili-product">
+          <div class="navbar-inner">
+            <div class="left">
+              <a href="#" class="link icon-only panel-open" data-panel="left">
+                <i class="fa fa-bars" style="font-size: 17px"></i>
+              </a>
+            </div>
+            <div class="title sliding"><a href="/index/"><img src="images/elba-logo/logo.png" alt="logo" /></a></div>
+          </div>
+          <div class="navbar-inner sliding call-back">
+            <div class="left">
+              <a href="#" class="link back">
+                <i class="icon icon-back"></i>
+                <span class="ios-only">Back</span>
+              </a>
+            </div>
+            <div class="title family_name"></div>
+          </div>
+        </div>
+
+        <!-- Italy Flag -->
+
+        <div class="elba-flag">
+          <div class="flag-1"></div>
+          <div class="flag-2">made In Italy Since 1950</div>
+          <div class="flag-3"></div>
+        </div>
+
+        <div class="page-content all-product">
+          <div class="block-title searchbar-found all-product-title family_name"></div>
+          <div class="list components-list searchbar-found">
+            <ul class="products">
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Page Content -->
+</template>
+
+
+<script>
+  return {
+    methods: {
+      getProducts(family_id) {
+        let _self = this,
+          lang = _self.$app.data.lang;
+        this.$app.request.json(this.$app.data.productsByFamily(family_id), function (products) {
+          let family_name = _self.$route.params.name;
+          _self.$('.family_name').html(family_name);
+          products.forEach((product) => {
+            let html =
+              `<li>
+                <a class="item-content item-link" href="/product/${product.product_id}">
+                  <div class="item-media"><img src="${_self.$app.data.producstImagesPath}${product.product_image}" alt="product-family-10"></div>
+                  <div class="item-inner">
+                    <div class="item-title">
+                      ${product['product_name_' + lang]}  
+                    </div>
+                  </div>
+                </a>
+              </li>`;
+            _self.$('.products').append(html);
+          });
+        });
+      }
+    },
+    on: {
+      pageInit() {
+        this.getProducts(this.$route.params.family);
+      }
+    }
+  }
+</script>

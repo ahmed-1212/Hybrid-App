@@ -1,0 +1,67 @@
+<template>
+
+  <div class="page">
+    <div class="view view-main view-init ios-edges" data-url="/">
+      <div class="page">
+        <div class="navbar famili-product">
+          <div class="navbar-inner">
+            <div class="left">
+              <a href="#" class="link icon-only panel-open" data-panel="left">
+                <i class="fa fa-bars" style="font-size: 17px"></i>
+              </a>
+            </div>
+            <div class="title sliding"><a href="/index/"><img src="images/elba-logo/logo.png" alt="logo" /></a></div>
+          </div>
+          <div class="navbar-inner sliding call-back">
+            <div class="left">
+              <a href="#" class="link back">
+                <i class="icon icon-back"></i>
+                <span class="ios-only">Back</span>
+              </a>
+            </div>
+            <div class="title language"></div>
+          </div>
+        </div>
+
+        <!-- Italy Flag -->
+
+        <div class="elba-flag">
+          <div class="flag-1"></div>
+          <div class="flag-2">made In Italy Since 1950</div>
+          <div class="flag-3"></div>
+        </div>
+
+        <div class="page-content settings">
+          <h3 class="ar-text-right language"><i class="fa fa-globe"></i></h3>
+          <a href="#!" @click="setLang('ar')" class="lan ar-text">Arabic</a>
+          <a href="#!" @click="setLang('en')" class="lan en-text">English</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+  return {
+    methods: {
+      setLang(lang) {
+        localStorage.setItem('lang', lang);
+        window.location.reload();
+      },
+      translate() {
+        let translate = JSON.parse(localStorage.getItem('translate'));
+        this.$app.$('.ar-text').html(translate['ar-text']);
+        this.$app.$('.en-text').html(translate['en-text']);
+        this.$app.$('.language').append(translate[this.$app.data.lang]['language']);
+        
+      }
+    },
+    on: {
+      pageInit() {
+        this.translate();
+        let lang = localStorage.getItem('lang');
+        lang == 'ar' ? this.$('.ar-text').addClass('active') : this.$('.en-text').addClass('active');
+      }
+    }
+  }
+</script>

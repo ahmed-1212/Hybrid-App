@@ -1,0 +1,56 @@
+//Navbar
+
+.md
+    .navbar
+        z-index: 1
+        background-color: #222
+        height: 70px
+        .title
+            text-align: center
+            margin: 0 auto
+            img
+                width: 75%
+                margin-top: 5px
+        .call-back
+            .title
+                margin-left: 123px
+    .block
+        a
+            color: $main-color
+            
+.searchbar .searchbar-input-wrap input[type=search]
+    padding-left: 62px
+            
+.panel
+    .page
+        .page-content
+            background-color: #333
+            .block
+                img
+                    width: 90%
+            .list
+                ul
+                    &:before
+                        background-color: #ccc
+                    &:after
+                        background-color: #ccc
+                    li
+                        @include transition(all .5s ease-in-out)
+                        &:hover
+                            background-color: $main-color
+                        &.active
+                            background-color: $main-color
+                        a
+                            color: #FFF
+                            font-size: 15px
+                            &:after
+                                background-color: #CCC
+                                left: 0
+                            span
+                                i
+                                    margin-right: 12px
+
+.md .link i+i, .md .link i+span, .md .link span+i, .md .link span+span
+    margin-left: 0
+    
+    
